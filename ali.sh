@@ -39,4 +39,4 @@ cat /etc/apt-fast.conf
 
 install=/opt/tpot/iso/installer/install.sh
 sed -i 's/deb.debian.org/mirrors.cloud.aliyuncs.com/g' $install
-bash $install "$@"
+bash $install --type=${TYPE:=user}
