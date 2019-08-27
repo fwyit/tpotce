@@ -6,7 +6,7 @@
 
 cd iso/installer
 
-test -z "$(which git 2>/dev/null)" && apt-get update && apt install -y git
+test -z "$(which git 2>/dev/null)" && apt-get update && apt install -y git docker-compose
 test ! -d /opt/tpot && git clone -b dev https://github.com/fwyit/tpotce /opt/tpot
 MIRROR=registry-vpc.cn-beijing.aliyuncs.com
 curl -m 2 https://$MIRROR/v2/ || MIRROR=registry.cn-beijing.aliyuncs.com
