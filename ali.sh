@@ -7,7 +7,8 @@ MIRROR=registry-vpc.cn-beijing.aliyuncs.com
 curl -m 2 https://$MIRROR/v2/ || MIRROR=registry.cn-beijing.aliyuncs.com
 
 cp /etc/apt/sources.list /etc/apt/sources.list.`date +%m%d%H%M`.bak
-test -z "$(which git 2>/dev/null)" && apt-get update && apt-get install -y git docker-compose apt-transport-https docker-ce
+test -z "$(which git 2>/dev/null)" && apt-get update && apt-get install -y git
+test -z "$(which docker-compose 2>/dev/null)" && apt-get install -y docker-compose apt-transport-https
 if test -z "$(which docker 2>/dev/null)"; then
     curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
     echo "deb https://mirrors.aliyun.com/docker-ce/linux/debian/ `lsb_release -cs` stable" > /etc/apt/sources.list.d/docker.list
