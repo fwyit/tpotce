@@ -17,7 +17,7 @@ fi
 
 repo=$MIRROR/fwy/tpot
 docker pull $repo:src
-test -z "$(docker ps | grep tpot)" || docker run -d --name tpot $repo:src tail -f /etc/hosts
+test -z "$(docker ps | grep tpot)" && docker run -d --name tpot $repo:src tail -f /etc/hosts
 sleep 4
 if test ! -d /opt/tpot || test `ls /opt/tpot | wc -l` -eq 0; then
     mkdir -p /opt/tpot
